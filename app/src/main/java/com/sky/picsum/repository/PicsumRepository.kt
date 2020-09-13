@@ -1,8 +1,7 @@
 package com.sky.picsum.repository
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.sky.picsum.model.Abc
+import com.sky.picsum.model.PicsumResponse
 import com.sky.picsum.model.network.ApiClient
 import com.sky.picsum.model.network.ApiInterface
 import retrofit2.Call
@@ -13,20 +12,18 @@ class PicsumRepository {
     private var apiInterface: ApiInterface? = null
 
 
-    fun getPicsumApis( page:String,  limit:String):MutableLiveData<Abc>{
-        val mutableLiveData=MutableLiveData<Abc>()
-        var map =HashMap<String,Any>()
+    fun getPicsumApis( page:Int,  limit:Int):MutableLiveData<PicsumResponse>{
+        val mutableLiveData=MutableLiveData<PicsumResponse>()
+        var map =HashMap<String,Int>()
         map.put("page",page)
         map.put("limit",limit)
         apiInterface=ApiClient.clientAuthentication!!.create(ApiInterface::class.java)
-        apiInterface!!.getPicsum(map).enqueue(object :Callback<Abc>{
-            override fun onResponse(call: Call<Abc>, response: Response<Abc>) {
-                TODO("Not yet implemented")
+        apiInterface!!.getPicsum(map).enqueue(object :Callback<PicsumResponse>{
+            override fun onResponse(call: Call<PicsumResponse>, response: Response<PicsumResponse>) {
                 mutableLiveData.value=response.body();
             }
 
-            override fun onFailure(call: Call<Abc>, t: Throwable) {
-                TODO("Not yet implemented")
+            override fun onFailure(call: Call<PicsumResponse>, t: Throwable) {
                 mutableLiveData.value=null
             }
         })
