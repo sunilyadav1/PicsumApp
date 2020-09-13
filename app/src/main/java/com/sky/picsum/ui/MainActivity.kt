@@ -21,6 +21,7 @@ class MainActivity : BaseActivity() , SwipeRefreshLayout.OnRefreshListener{
     var isLastPage: Boolean = false
     var SKIP:Int=1
     var LIMIT:Int=12;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

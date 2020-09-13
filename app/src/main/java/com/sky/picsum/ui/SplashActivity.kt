@@ -16,11 +16,9 @@ open class SplashActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         handler.postDelayed(Runnable() {
-
             var i = Intent(this@SplashActivity, MainActivity::class.java);
             startActivity(i);
             finish();
-
         }, SPLASH_TIME_OUT.toLong());
     }
 
