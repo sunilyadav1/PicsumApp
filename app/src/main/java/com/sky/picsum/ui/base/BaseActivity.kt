@@ -1,4 +1,4 @@
-package com.sky.picsum.ui
+package com.sky.picsum.ui.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

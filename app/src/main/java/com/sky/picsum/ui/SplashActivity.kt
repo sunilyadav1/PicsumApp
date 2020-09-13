@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import com.sky.picsum.R
+import com.sky.picsum.ui.base.BaseActivity
 
 open class SplashActivity : BaseActivity() {
      var SPLASH_TIME_OUT = 5000;
