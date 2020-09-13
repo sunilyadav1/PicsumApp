@@ -23,6 +23,7 @@ open class PicsumAdapter(val mPicsumResponse: PicsumResponse): RecyclerView.Adap
         return MyViewHolder(view)
     }
 
+
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         var mPicsumResponseItem: PicsumResponseItem=mPicsumResponse.get(position)
         holder.txtTitle.text=mPicsumResponseItem.author
