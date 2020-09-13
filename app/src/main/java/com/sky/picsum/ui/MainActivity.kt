@@ -29,6 +29,9 @@ class MainActivity : BaseActivity() , SwipeRefreshLayout.OnRefreshListener{
        renderUI(SKIP,LIMIT);
     }
 
+    /**
+     * render ui with adapter
+     */
     private fun renderUI(mSkip: Int, mLimit: Int) {
         progressBar.visibility= View.VISIBLE
         picsumViewModel.getPicsumApi(mSkip, mLimit).observe(this, Observer {
@@ -39,6 +42,9 @@ class MainActivity : BaseActivity() , SwipeRefreshLayout.OnRefreshListener{
 
     }
 
+    /**
+     * recyclerView initialize
+     */
     private fun setupUI(picsumResponse: PicsumResponse) {
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = PicsumAdapter(picsumResponse)
@@ -49,17 +55,12 @@ class MainActivity : BaseActivity() , SwipeRefreshLayout.OnRefreshListener{
             )
         )
         recyclerView.adapter = adapter
-
-
-
-
     }
+
 
     override fun onRefresh() {
         mSwipeRefreshLayout.setRefreshing(false)
         SKIP=SKIP+1;
-        Log.e("Skip:",""+SKIP)
-        Log.e("Limit:",""+LIMIT)
         renderUI(SKIP,LIMIT);
     }
 }

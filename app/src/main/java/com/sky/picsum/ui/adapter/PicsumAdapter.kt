@@ -10,6 +10,9 @@ import com.sky.picsum.model.PicsumResponse
 import com.sky.picsum.model.PicsumResponseItem
 import kotlinx.android.synthetic.main.item_layout.view.*
 
+/**
+ * PicsumAdapter this class populate UI in recyclerview
+ */
 open class PicsumAdapter(val mPicsumResponse: PicsumResponse): RecyclerView.Adapter<PicsumAdapter.MyViewHolder>() {
     class MyViewHolder(view: View):RecyclerView.ViewHolder(view) {
         val imageViewAvatar=view.imageViewAvatar
